@@ -19,7 +19,8 @@ public class AppSecurityConfig {
                                 .requestMatchers("/items").hasRole("ADMIN")
                                 .requestMatchers("/items/{itemId}").hasRole("ADMIN")
                                 .requestMatchers("/orders").hasRole("USER")
-                                .requestMatchers("/availableItems").hasRole("USER"));
+                                .requestMatchers("/availableItems").hasRole("USER")
+                                .requestMatchers("/register").permitAll());
         http.formLogin(Customizer.withDefaults());
         http.httpBasic(Customizer.withDefaults());
         return http.build();
